@@ -2,7 +2,7 @@ FROM registry.access.redhat.com/ubi8/python-39
 
 ARG USER_ID=${USER_ID:-1001}
 ARG DEVEL_COLLECTION_LIBRARY=0
-WORKDIR $HOME
+WORKDIR $HOME/ansible-rulebook
 
 USER 0
 RUN dnf install -y java-17-openjdk-devel
