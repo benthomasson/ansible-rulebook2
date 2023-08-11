@@ -161,3 +161,9 @@ class RunWorkflowTemplate:
                 "/#/jobs/workflow/" f"{self.controller_job['id']}/" "details",
             )
         return ""
+
+
+
+async def main(metadata: Metadata, control: Control, **action_args):
+    await RunWorkflowTemplate(metadata, control, **action_args)()
+
