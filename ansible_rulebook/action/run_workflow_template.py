@@ -163,7 +163,5 @@ class RunWorkflowTemplate:
         return ""
 
 
-
 async def main(metadata: Metadata, control: Control, **action_args):
     await RunWorkflowTemplate(metadata, control, **action_args)()
-

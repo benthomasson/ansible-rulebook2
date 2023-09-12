@@ -72,6 +72,6 @@ class RunModule(RunPlaybook):
         with open(self.playbook, "w") as f:
             yaml.dump(wrapper, f)
 
+
 async def main(metadata: Metadata, control: Control, **action_args):
     await RunModule(metadata, control, **action_args)()
-
