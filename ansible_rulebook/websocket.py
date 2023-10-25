@@ -30,7 +30,7 @@ logger = logging.getLogger(__name__)
 
 
 async def request_workload(
-    activation_id: str, websocket_address: str, websocket_ssl_verify: str
+    activation_id: str, websocket_address: str, websocket_ssl_verify: str, token: str
 ) -> StartupArgs:
     logger.info("websocket %s connecting", websocket_address)
     async with websockets.connect(
@@ -40,7 +40,7 @@ async def request_workload(
         try:
             logger.info("websocket %s connected", websocket_address)
             await websocket.send(
-                json.dumps(dict(type="Worker", activation_id=activation_id))
+                json.dumps(dict(type="Worker", activation_id=activation_id, token=token))
             )
 
             project_data_fh = None

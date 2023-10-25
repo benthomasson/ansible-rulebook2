@@ -58,7 +58,6 @@ logger = logging.getLogger(__name__)
 INVENTORY_ACTIONS = ("run_playbook", "run_module")
 
 
-# FIXME(cutwater): Replace parsed_args with clear interface
 async def run(parsed_args: argparse.ArgumentParser) -> None:
 
     if parsed_args.worker and parsed_args.websocket_address and parsed_args.id:
@@ -67,6 +66,7 @@ async def run(parsed_args: argparse.ArgumentParser) -> None:
             parsed_args.id,
             parsed_args.websocket_address,
             parsed_args.websocket_ssl_verify,
+            parsed_args.token,
         )
         if parsed_args.inventory:
             startup_args.inventory = load_inventory(parsed_args.inventory)

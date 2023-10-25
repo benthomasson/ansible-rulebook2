@@ -130,6 +130,12 @@ def get_parser() -> argparse.ArgumentParser:
         default=os.environ.get("EDA_CONTROLLER_TOKEN", ""),
     )
     parser.add_argument(
+        "--token",
+        help="EDA web socket authentication token, can also be passed "
+        "via env var EDA_TOKEN",
+        default=os.environ.get("EDA_TOKEN", ""),
+    )
+    parser.add_argument(
         "--controller-ssl-verify",
         help="How to verify SSL when connecting to the "
         "controller, yes|no|<path to a CA bundle>, "
