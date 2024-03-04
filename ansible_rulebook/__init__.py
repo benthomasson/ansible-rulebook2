@@ -23,4 +23,4 @@ def construct_vault_encrypted_unicode(loader, node):
 
 yaml.SafeLoader.add_constructor("!vault", construct_vault_encrypted_unicode)
 
-__version__ = "2024.2.26"
+__version__ = "2024.3.4"
