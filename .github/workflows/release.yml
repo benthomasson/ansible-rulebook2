@@ -27,7 +27,7 @@ jobs:
           python-version: ${{ env.py_version }}
 
       - name: Install python deeps
-        run: pip install -r requirements/requirements_dev.txt
+        run: pip install -r requirements_dev.txt
 
       - name: Create release
         run: ansible-playbook tools/ansible/release.yml -i localhost -e github_token=${{ secrets.GITHUB_TOKEN }}
