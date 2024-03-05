@@ -16,3 +16,6 @@ coverage
 ansible-builder
 
 pre-commit
+
+# For buiding releases
+setuptools-scm
