@@ -32,5 +32,8 @@ jobs:
       - name: Install python deps
         run: pip install -r requirements_dev.txt
 
+      - name: Install ansible-rulebook
+        run: pip install -e .
+
       - name: Create release
-        run: ansible-playbook tools/ansible/release.yml -i localhost -e github_token=${{ secrets.GITHUB_TOKEN }}
+        run: ansible-playbook tools/ansible/release.yml -i localhost -e github_token=${{ secrets.GITHUB_TOKEN }} -vvv
