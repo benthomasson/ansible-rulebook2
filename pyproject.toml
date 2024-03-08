@@ -13,9 +13,6 @@ combine_as_imports = true
 line_length = 79
 extend_skip = ["docs"]
 
-[tool.setuptools_scm]
-version_scheme = "semver"
-
 [tool.bumpver]
 current_version = "1.0.6b1"
 version_pattern = "MAJOR.MINOR.PATCH[PYTAGNUM]"
