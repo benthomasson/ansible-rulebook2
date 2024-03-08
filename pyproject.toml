@@ -17,7 +17,7 @@ extend_skip = ["docs"]
 version_scheme = "semver"
 
 [tool.bumpver]
-current_version = "1.0.6b0"
+current_version = "1.0.6b1"
 version_pattern = "MAJOR.MINOR.PATCH[PYTAGNUM]"
 commit_message = "chore: bump version {old_version} -> {new_version}"
 tag_message = "{new_version}"
