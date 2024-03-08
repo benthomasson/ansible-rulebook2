@@ -11,25 +11,21 @@
   #    When this playbook runs it will run in the directory of the playbook so ../../ would be a reference to the ansible-rulebook root
 
   tasks:
-    - name: Generate calver release number
-      set_fact:
-        # setuptools-scm will strip leading 0's off the date format so we need to do that too
-        release_number: "{{ (ansible_date_time.date | to_datetime('%Y-%m-%d')).strftime('%Y.%m.%d') | regex_replace('\\.0', '.') }}"
 
-    - name: Tag the repo
+    - name: Bump the version
       command:
-        cmd: "git tag -f {{ release_number }}"
+        cmd: bumpver update --tag-num
+      args:
+        chdir: '../../'
 
     - name: Get the build number from setuptools-scm
       command:
-        cmd: python -m setuptools_scm
-      register: setuptools_command_version
+        cmd: git describe
+      register: git_version
 
-    - name: Make sure the selected release number and setuptools_scm agree
-      assert:
-        that:
-          release_number == setuptools_command_version.stdout
-        msg: "We expected the release number to be {{ release_number }} but setuptools-scm wanted it to be {{ setuptools_command_version.stdout }}"
+    - set_fact:
+        release_number: "{{ git_version.stdout }}"
+
 
     - name: Build ansible-rulebook
       command:
