@@ -13,18 +13,13 @@
   tasks:
 
     - name: Get the build number from setuptools-scm
-      command:
-        cmd: python3 -c 'import setuptools; setuptools.setup()' --version
+      shell: "ansible-rulebook --version | head -n 1"
       args:
         chdir: '../../'
       register: setuptools_command_version
 
     - set_fact:
        release_number: "{{ setuptools_command_version.stdout }}"
-
-    - name: Tag the repo
-      command:
-        cmd: "git tag -f {{ release_number }}"
 
     - name: Build ansible-rulebook
       command:
