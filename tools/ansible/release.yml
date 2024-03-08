@@ -12,14 +12,14 @@
 
   tasks:
 
-    - name: Get the build number from setuptools-scm
-      shell: "ansible-rulebook --version | head -n 1"
+    - name: Get the build number from VERSION file
+      shell: "cat VERSION"
       args:
         chdir: '../../'
-      register: setuptools_command_version
+      register: version_file
 
     - set_fact:
-       release_number: "{{ setuptools_command_version.stdout }}"
+       release_number: "{{ version_file.stdout }}"
 
     - name: Build ansible-rulebook
       command:
