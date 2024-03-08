@@ -12,12 +12,6 @@
 
   tasks:
 
-    - name: Bump the version
-      command:
-        cmd: bumpver update --tag-num
-      args:
-        chdir: '../../'
-
     - name: Get the build number from setuptools-scm
       command:
         cmd: git describe
