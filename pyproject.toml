@@ -37,4 +37,6 @@ push = true
 "setup.cfg" = [
     'version = {version}',
 ]
-
+"VERSION" = [
+'{version}'
+]
