@@ -26,6 +26,7 @@ tag = true
 push = true
 
 [tool.setuptools_scm]
+version_scheme = "only-version"
 
 
 
