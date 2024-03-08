@@ -26,6 +26,7 @@
     - set_fact:
         release_number: "{{ git_version.stdout }}"
 
+
     - name: Build ansible-rulebook
       command:
         cmd: make dist
