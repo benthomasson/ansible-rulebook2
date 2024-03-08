@@ -14,7 +14,7 @@
 
     - name: Get the build number from setuptools-scm
       command:
-        cmd: python -m setuptools_scm --strip-dev
+        cmd: python3 -c 'import setuptools; setuptools.setup()' --version
       register: setuptools_command_version
 
     - set_fact:
