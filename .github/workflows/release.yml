@@ -17,6 +17,8 @@ jobs:
     steps:
       - name: Checkout ansible-rulebook
         uses: actions/checkout@v3
+        with:
+          fetch-tags: true
 
       - name: Get python version from Makefile
         run: echo py_version=`make PYTHON_VERSION` >> $GITHUB_ENV
@@ -26,7 +28,7 @@ jobs:
         with:
           python-version: ${{ env.py_version }}
 
-      - name: Install python deeps
+      - name: Install python deps
         run: pip install -r requirements_dev.txt
 
       - name: Create release
